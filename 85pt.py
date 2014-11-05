@@ -36,15 +36,23 @@ class MyApp:
 		self.button1.bind("<Button-1>", self.button1Click)
                 self.button2.bind("<Button-1>", self.button2Click)
 
-	def button1Click(self, event):   
-            drawpad.move(oval,-5,0)
+
+	        drawpad.pack()
+	def button1Click(self, event): 
+            x1, y1, x2, y2 = drawpad.coords(oval)
+            if x1 < 0 and x2 < 160:
+                drawpad.move(oval, 5,0)
+            else:  
+                drawpad.move(oval,-5,0)
 	def button2Click(self, event): 
-	    drawpad.move(oval,5,0)
-
-
+            x1, y1, x2, y2 = drawpad.coords(oval)
+            if x1 > 320 and x2 > 480:
+	       drawpad.move(oval,-5,0)
+            else:
+                drawpad.move(oval,5,0)
 		  
 		# This creates the drawpad - no need to change this 
-	    drawpad.pack()
+
 		
 
 		
