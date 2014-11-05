@@ -78,26 +78,32 @@ class MyApp:
 	   drawpad.move(player,20,0)
 
 
-		# Ensure that we are doing our collision detection
-		# After we move our object!
+
            didWeHit = collisionDetect()
            if(didWeHit == True):
+            x1,y1,x2,y2 = drawpad.coords(player)
+            if (targetx1 < x1 and targetx2 > x2) and (targety1 < y1 and targety2 > y2):
+
+
                     # We made contact! Stop our animation!
-                    print "Do something"
+                print "Do something"
 	# Use a function to do our collision detection
 	# This way we only have to write it once, and call it from
 	# every button click function.
 	def collisionDetect(self):
-                global oval
-		global drawpad
-                x1,y1,x2,y2 = drawpad.coords(player)
+            global oval
+	    global drawpad
+            x1,y1,x2,y2 = drawpad.coords(player)
+            
 
                 # Do your if statement - remember to return True if successful!
-                if  x1 > 199 and x2 < 281 and y1 <19 and y2 > 81:\
+            x1,y1,x2,y2 = drawpad.coords(player)
+            if (targetx1 < x1 and targetx2 > x2) and (targety1 < y1 and targety2 > y2):
                 return True
+
+                
 
 	    
 		
 myapp = MyApp(root)
-
 root.mainloop()
